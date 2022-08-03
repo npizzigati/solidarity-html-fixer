@@ -8,9 +8,16 @@
   <body>
     <h3>Pops' html extractor</h3>
     <form id="user-details" action="/upload" method="POST" enctype="multipart/form-data">
-      <label for="file">Select .eml file</label>
-      <input type="file" class="file-input" id="file" name="file" required>
-      <button style="display: block;" type="submit" id="submit">Extract and download html</button>
+      <div>
+        <h4>1.&nbsp;</h4>
+        <label for="file">Select .eml file: </label>
+        <input type="file" class="file-input" id="file" name="file" accept=".eml" required>
+      </div>
+      <div>
+        <h4>2.&nbsp;</h4>
+        <label for="submit">Extract and download html: </label>
+        <button type="submit" id="submit">Extract</button>
+      </div>
     </form>
   </body>
 </html>

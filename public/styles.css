@@ -1,0 +1,7 @@
+h4 {
+    display: inline;
+}
+
+form > div {
+    margin-bottom: 1em;
+}
