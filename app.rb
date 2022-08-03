@@ -17,9 +17,9 @@ end
 post '/upload' do
     tempfile = params[:file][:tempfile]
     # filename = params[:file][:filename]
-    upload_path = "public/uploads/upload.eml"
-    FileUtils.cp(tempfile.path, upload_path)
-    mail = Mail.read(upload_path)
+    # upload_path = "public/uploads/#{filename}"
+    # FileUtils.cp(tempfile.path, upload_path)
+    mail = Mail.read(tempfile.path)
 
     headers['Content-Disposition'] = "attachment;filename=good_html_file.html"
     mail.decoded
