@@ -5,3 +5,11 @@ h4 {
 form > div {
     margin-bottom: 1em;
 }
+
+.failure {
+    margin-bottom: 1em;
+}
+
+.failure > a {
+    font-size: 1.5rem;
+}
