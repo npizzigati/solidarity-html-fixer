@@ -2,6 +2,7 @@ require 'bundler/setup'
 
 require 'sinatra'
 require 'erb'
+require 'mail'
 require 'fileutils'
 
 set :public_folder, 'public'
@@ -16,6 +17,10 @@ end
 post '/upload' do
     tempfile = params[:file][:tempfile]
     filename = params[:file][:filename]
-    FileUtils.cp(tempfile.path, "public/uploads/#{filename}")
-    'File uploaded to public/uploads/'
+    upload_path = "public/uploads/#{filename}"
+    FileUtils.cp(tempfile.path, upload_path)
+    mail = Mail.read(upload_path)
+
+    headers['Content-Disposition'] = "attachment;filename=good_html_file.html"
+    mail.decoded
 end
