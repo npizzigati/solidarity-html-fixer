@@ -2,6 +2,7 @@ require 'bundler/setup'
 
 require 'sinatra'
 require 'erb'
+require 'fileutils'
 
 set :public_folder, 'public'
 
@@ -15,6 +16,6 @@ end
 post '/upload' do
     tempfile = params[:file][:tempfile]
     filename = params[:file][:filename]
-    cp(tempfile.path, "public/uploads/#{filename}")
+    FileUtils.cp(tempfile.path, "public/uploads/#{filename}")
     'File uploaded to public/uploads/'
 end
