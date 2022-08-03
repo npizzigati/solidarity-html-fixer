@@ -16,8 +16,8 @@ end
 
 post '/upload' do
     tempfile = params[:file][:tempfile]
-    filename = params[:file][:filename]
-    upload_path = "public/uploads/#{filename}"
+    # filename = params[:file][:filename]
+    upload_path = "public/uploads/upload.eml"
     FileUtils.cp(tempfile.path, upload_path)
     mail = Mail.read(upload_path)
 
